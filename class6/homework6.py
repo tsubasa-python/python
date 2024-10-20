@@ -1,11 +1,12 @@
 import time
 import turtle as t
 
+max = 10000000000000
 t.shape("turtle")
-t.speed(0)
+t.speed(max)
 t.penup()
 for r in range(60):
-    t.right(6)
+    t.right(6 + r)
     t.pendown()
     t.forward(80)
     t.penup()
