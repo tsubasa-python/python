@@ -6,7 +6,7 @@ t.shape("turtle")
 t.speed(max)
 t.penup()
 for r in range(60):
-    t.right(6 + r)
+    t.right(6 * r)
     t.pendown()
     t.forward(80)
     t.penup()
