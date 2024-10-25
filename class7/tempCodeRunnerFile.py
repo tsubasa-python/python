@@ -1,5 +1,5 @@
-password = "12345678"
+
 user_input = ""
-while user_input != password:
-    user_input = input("Enter your password again: ")
+while user_input != "123456789":
+    user_input = input("Enter your password: ")
 print("Access granted")
