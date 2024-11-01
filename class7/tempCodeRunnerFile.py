@@ -1,7 +1,6 @@
+s = int(input("Please enter the size of the arrow: "))
 
-n = int(input("請輸入要印出的箭頭大小: "))
-i = 1
-while i <= n:
-    val = "*" * i
-    print(val)
-    i = i + 2
+for i in range(1, s + 1):
+    print(" " * (s - i) + "*" * (2 * i - 1))    
+for n in range(s):
+    print(" " * (s - 1) + "*")

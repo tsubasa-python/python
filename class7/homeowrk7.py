@@ -14,15 +14,15 @@ EX
 18
 """
 
-# num = int(input("請輸入正整數: "))
-# i = 1
-# while i <= num:
-#     if i % 3 == 0 or i % 7 == 0:
-#         print(i)
-#     i += 1
+num = int(input("請輸入正整數: "))
+i = 1
+while i <= num:
+    if i % 3 == 0 or i % 7 == 0:
+        print(i)
+    i += 1
+
 
 s = int(input("Please enter the size of the arrow: "))
-
 for i in range(1, s + 1):
     print(" " * (s - i) + "*" * (2 * i - 1))
 for n in range(s):
