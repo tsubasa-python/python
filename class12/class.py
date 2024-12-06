@@ -19,7 +19,7 @@ print(s)
 L = ["hello", "world"]  # リストの定義
 L.append("world")  # リストに要素を追加
 print(L)  # リストの要素を表示
-L.remove("world")  # リストから要素を削除
+L.remove("world")  #                リストから要素を削除
 print(L)  # リストの要素を表示
 
 s = L.pop(0)
