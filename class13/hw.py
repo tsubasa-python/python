@@ -12,5 +12,8 @@ pizza: 2 pieces
 
 food_list = {"cake": 1, "sandwich": 10, "juice": 20, "french fries": 15, "pizza": 2}
 
-for k in food_list:
-    print(f"{k}: {food_list[k]} pieces")
+for k, v in food_list.items():
+    if k == "juice":
+        print(f"{k}: {v} cups")
+    else:
+        print(f"{k}: {v} pieces")
