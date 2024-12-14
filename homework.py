@@ -96,3 +96,10 @@ while True:
                 break
     if choice == "2":
         deleting_subject = int(input("Enter the subject you want to delete: "))
+        try:
+            deleted_score = score.pop(deleting_subject)
+        except:
+            print("This subject has not been added!")
+        else:
+            print(f"Successfully deleted!")
+            print(score)
