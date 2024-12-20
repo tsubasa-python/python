@@ -84,18 +84,18 @@ while True:
     while choice not in ["1", "2", "3"]:
         print("Invalid input, ple+ase enter a number.")
     if choice == "1":
-        subject = int(input("Enter the subject you want to add: "))
-        while True:
+        subject = str(input("Enter the subject you want to add: "))
+        if True:
             try:
                 score[subject] = int(input("Enter the score: "))
             except:
                 print("Invalid input, please enter a string.")
                 continue
             else:
-                print(f"{subject}: {score[subject]}")
-                break
+                print(score)
+
     if choice == "2":
-        deleting_subject = int(input("Enter the subject you want to delete: "))
+        deleting_subject = str(input("Enter the subject you want to delete: "))
         try:
             deleted_score = score.pop(deleting_subject)
         except:
@@ -103,3 +103,10 @@ while True:
         else:
             print(f"Successfully deleted!")
             print(score)
+    if choice == "3":
+        total_score = 0
+        for subject in score:
+            total_score += score[subject]
+        average_score = total_score / len(score)
+        print(score)
+        print(f"The average score is: {average_score}")
