@@ -110,3 +110,4 @@ while True:
         average_score = total_score / len(score)
         print(score)
         print(f"The average score is: {average_score}")
+        break
