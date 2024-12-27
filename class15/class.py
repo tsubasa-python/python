@@ -1,3 +1,6 @@
+name = "Alex"  # 変数の定義
+
+
 def say_hello():  # これは関数を定義している
     print("Hello, world!")
     print("Hello, world!")
@@ -31,3 +34,12 @@ def otherthing():
     global thing  # globalは変数を同期する
     thing = "猫"
     print(thing)
+
+
+def somethingelse():
+    global alex
+    alex = "うｐ主"
+    print(alex)
+
+
+# globalは変数を同期する
