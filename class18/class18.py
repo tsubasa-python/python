@@ -27,5 +27,5 @@ with open("class18/file_test.py", "r") as file:
 # このように、ファイルを開いて、ファイルの内容を表示すると、ファイルを閉じる必要がなくなる。
 
 file = open("class18/file_test.py", "w")
-file.write("print('finally we did it!')")
+file.write("print('something new!')")
 file.close()
