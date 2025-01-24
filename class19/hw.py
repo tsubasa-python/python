@@ -92,78 +92,59 @@ Details:
 謝謝使用！資料已儲存。(Thank you! Data has been saved.)
 """
 
+expenses = {}
+
+
+def format_date(date):
+    # 日付フォーマットの統一化
+    date = date.replace("/", "-")  # スラッシュをハイフンに変換
+    if len(date) == 8:  # 20240101形式
+        return f"{date[:4]}-{date[4:6]}-{date[6:]}"
+    return date
+
+
+def add_expense():
+    date = format_date(input("請輸入日期 (Enter date): "))
+    try:
+        amount = int(input("請輸入金額 (Enter amount): "))
+        if date in expenses:
+            expenses[date] += amount
+        else:
+            expenses[date] = amount
+        print("已儲存支出紀錄！(Expense record saved!)")
+    except ValueError:
+        print("金額必須是數字！")
+
+
+def query_date():
+    date = format_date(input("請輸入要查詢的日期 (Enter date to query): "))
+    amount = expenses.get(date, 0)
+    print(f"{date} 的支出為: {amount} 元")
+
+
+def show_total():
+    total = sum(expenses.values())
+    print(f"總支出為: {total} 元")
+
+
+# メインループ
 while True:
-    print("歡迎使用小小記帳程式！(Welcome to Mini Expense Tracker!)")
+    print("\n歡迎使用小小記帳程式！(Welcome to Mini Expense Tracker!)")
     print("1. 新增支出紀錄 (Add new expense)")
     print("2. 查詢日期支出 (Query date expenses)")
     print("3. 顯示總支出 (Show total expenses)")
-    print("4. 查詢近期支出 (Query recent expenses)")
-    print("5. 離開程式 (Exit)")
-    print("請選擇功能 (Select function): ", end="")
-    choice = input()
+    print("4. 離開程式 (Exit)")
+
+    choice = input("請選擇功能 (Select function): ")
+
     if choice == "1":
-        print("請輸入日期 (Enter date): ", end="")
-        date = str(input())
-        print("請輸入金額 (Enter amount): ", end="")
-        amount = int(input())
-        print("已儲存支出紀錄！(Expense record saved!)")
-        with open("expenses.txt", "a") as file:
-            file.write()
+        add_expense()
     elif choice == "2":
-        print("請輸入要查詢的日期 (Enter date to query): ", end="")
-        date = input()
-        with open("expenses.txt", "r") as file:
-            for line in file:
-                if line.split()[0] == date:
-                    print(
-                        line.split(" ")[0]
-                        + "的支出為: "
-                        + line.split(" ")[1]
-                        + "元 (Expenses for "
-                        + line.split(" ")[0]
-                        + ": "
-                        + line.split(" ")[1]
-                        + ")"
-                    )
+        query_date()
     elif choice == "3":
-        open("expenses.txt", "r")
-
-        alladded = 0
-        for line in open("expenses.txt", "r"):
-            alladded += int(line.split()[1])
-        print("總支出為: " + str(alladded) + "元")
-
+        show_total()
     elif choice == "4":
-        print("請問要查詢最近幾天的支出？(How many recent days to query?): ", end="")
-        days = input()
-        with open("expenses.txt", "r") as file:
-            for line in file:
-                if line.split()[0] == date:
-                    print(
-                        line.split()[0]
-                        + "的支出為: "
-                        + line.split()[1]
-                        + "元 (Expenses for "
-                        + line.split()[0]
-                        + ": "
-                        + line.split()[1]
-                        + ")"
-                    )
-        print("詳細資料：")
-        for line in file:
-            if line.split()[0] >= date:
-                print(line.split()[0] + ": " + line.split()[1] + "元")
-        print(
-            "(Total expenses from "
-            + date
-            + " to "
-            + date
-            + ": "
-            + sum(int(line.split()[1]) for line in file)
-            + ")"
-        )
-    elif choice == "5":
-        print("謝謝使用！資料已儲存。(Thank you! Data has been saved.)")
+        print("謝謝使用！")
         break
     else:
-        print("請輸入正確的數字！(Please enter a valid number!)")
+        print("請輸入有效的選項！")
